@@ -2,5 +2,5 @@
 
 the simpleDatabaseDemo : a basic code fragment, access  the  Myssql  or MSSQL database 
 
-simpleDatabaseDemo_Fluent_LiveBindings : working with live bindings, but using the  fluent livebindings  unit ( ) 
+simpleDatabaseDemo_Fluent_LiveBindings : working with live bindings, but using the  fluent livebindings  unit ( https://github.com/malcolmgroves/FluentLiveBindings ) 
 
