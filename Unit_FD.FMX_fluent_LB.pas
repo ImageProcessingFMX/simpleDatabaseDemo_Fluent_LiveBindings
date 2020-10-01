@@ -44,7 +44,8 @@ type
     bndnvgtr1: TBindNavigator;
     pnl3: TPanel;
     edt_field: TEdit;
-    btn2: TButton;
+    btn_BindEdit: TButton;
+    lbl5: TLabel;
     procedure btn_ConnectDatabaseClick(Sender: TObject);
     procedure btn_getOBJTableClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -54,7 +55,7 @@ type
     procedure lst_databasetablelistDblClick(Sender: TObject);
     procedure btn_LoadServerNamesClick(Sender: TObject);
     procedure btn1Click(Sender: TObject);
-    procedure btn2Click(Sender: TObject);
+    procedure btn_BindEditClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -100,7 +101,7 @@ begin
   // ConnecttoServerMYSQL (con1, Fservername, Databasename, User, Password );
 end;
 
-procedure TForm_dbtest.btn2Click(Sender: TObject);
+procedure TForm_dbtest.btn_BindEditClick(Sender: TObject);
 var  QueryfieldName : String ;
      FieldCount : Integer ;
 begin

@@ -230,15 +230,21 @@ object Form_dbtest: TForm_dbtest
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
       end
-      object btn2: TButton
+      object btn_BindEdit: TButton
         Position.X = 24.000000000000000000
-        Position.Y = 136.000000000000000000
+        Position.Y = 104.000000000000000000
         Size.Width = 169.000000000000000000
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        Text = 'btn2'
-        OnClick = btn2Click
+        Text = 'Bind (Edit)'
+        OnClick = btn_BindEditClick
+      end
+      object lbl5: TLabel
+        Position.X = 24.000000000000000000
+        Position.Y = 16.000000000000000000
+        Text = 'Field Name'
+        TabOrder = 3
       end
     end
   end
