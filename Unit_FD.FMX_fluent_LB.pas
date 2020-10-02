@@ -16,7 +16,8 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
   FireDAC.Phys.MSSQLDef, FireDAC.FMXUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
   FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Data.Bind.Controls, FMX.Bind.Navigator;
+  FireDAC.Comp.Client, Data.Bind.Controls, FMX.Bind.Navigator, FMX.EditBox,
+  FMX.SpinBox;
 
 type
   TForm_dbtest = class(TForm)
@@ -45,7 +46,9 @@ type
     pnl3: TPanel;
     edt_field: TEdit;
     btn_BindEdit: TButton;
-    lbl5: TLabel;
+    lbl_fieldname: TLabel;
+    spnbx_FieldCount: TSpinBox;
+    lbl6: TLabel;
     procedure btn_ConnectDatabaseClick(Sender: TObject);
     procedure btn_getOBJTableClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -103,13 +106,15 @@ end;
 
 procedure TForm_dbtest.btn_BindEditClick(Sender: TObject);
 var  QueryfieldName : String ;
-     FieldCount : Integer ;
+     FieldSelected: Integer ;
 begin
 
-  FieldCount := FDQuery1.DataSource.DataSet.FieldCount;
 
-  QueryfieldName := FDQuery1.DataSource.DataSet.FieldList.Fields[1]
-    .FieldName ;
+  FieldSelected := Round(spnbx_FieldCount.Value) ;
+
+  QueryfieldName := FDQuery1.FieldList.Fields[FieldSelected].FieldName ;
+
+  lbl_fieldname.Text := 'field name : ' +  QueryfieldName ;
 
   BindingsList1.BindComponent(edt_field)
     .ToField(BindSourceDB1, QueryfieldName );
@@ -167,6 +172,7 @@ end;
 procedure TForm_dbtest.btn_getOBJTableClick(Sender: TObject);
 var
   conStatus: Boolean;
+  FieldCount : Integer ;
 begin
 
 
@@ -195,6 +201,15 @@ begin
   finally;
     statusbar.text := ' done :-)   using ' + FTablename;
   end;
+
+
+
+  FieldCount := FDQuery1.FieldCount;
+
+  spnbx_FieldCount.max := FieldCount ;
+
+  spnbx_FieldCount.min :=  0;
+
 
 end;
 
